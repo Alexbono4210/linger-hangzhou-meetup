@@ -1,0 +1,153 @@
+name: 报名 Linger 杭州站
+description: 报名 Linger 首次线下 Meetup · 杭州站（11/28 周六 14:00，Datawhale × Simplex AI）
+title: "[报名] "
+labels: ["signup", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > **这是审核制，提交不等于报名成功。** 48 小时内给结果，通过后会私信详细地址。
+        > 也可以让你的 Agent 直接提 Issue，格式见 [SKILL.md](../blob/main/SKILL.md)。
+
+  - type: input
+    id: name
+    attributes:
+      label: 姓名
+      placeholder: 张三
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: 微信 / 手机
+      description: 通知你的唯一凭据，请填真实信息
+      placeholder: 13800000000
+    validations:
+      required: true
+
+  - type: input
+    id: org
+    attributes:
+      label: 公司 / 学校
+      placeholder: 某某科技
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: 身份
+      options:
+        - 开发者
+        - 产品经理
+        - 设计师
+        - 研究员
+        - 创业者
+        - 学生
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: machine
+    attributes:
+      label: 你的电脑
+      description: 格式如「MacBook Pro M3 / 32GB」或「Win + RTX 4060 8GB」
+      placeholder: MacBook Pro M3 / 32GB
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bring_laptop
+    attributes:
+      label: 是否带电脑来现场
+      options:
+        - 带
+        - 不带
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: local_exp
+    attributes:
+      label: 本地模型经验（可多选）
+      options:
+        - label: Ollama
+        - label: LM Studio
+        - label: llama.cpp
+        - label: vLLM
+        - label: 都没有
+
+  - type: dropdown
+    id: tried_linger
+    attributes:
+      label: 试过 Linger 桌面端吗
+      options:
+        - 第一次听说
+        - star 了没装
+        - 装了没跑通
+        - 跑通了
+    validations:
+      required: true
+
+  - type: textarea
+    id: building
+    attributes:
+      label: 最近在折腾什么（这一栏最重要）
+      description: |
+        用两句话写，我们按这个判断你适不适合这场。
+        **不要写成自我介绍。**
+      value: |
+        ① 我现在在做什么：
+
+        ② 如果把它接进 Linger，第一个卡点会在哪一层（推理速度 / 记忆与检索 / 工具调用 / 接入方式）：
+    validations:
+      required: true
+
+  - type: input
+    id: screenshot
+    attributes:
+      label: 运行截图（图片链接，可留空）
+      description: 把截图直接拖进这个框会自动生成链接。终端输出、界面、报错都行；跑失败了也贴。
+      placeholder: https://github.com/user-attachments/assets/...
+
+  - type: dropdown
+    id: followup
+    attributes:
+      label: 活动后愿意继续参与吗
+      options:
+        - 想参与共建
+        - 愿意深度试用
+        - 只是了解
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mic
+    attributes:
+      label: 现场愿意开麦吗
+      options:
+        - 愿意
+        - 看情况
+        - 只听
+    validations:
+      required: true
+
+  - type: input
+    id: links
+    attributes:
+      label: 有什么能看到你的东西吗（选填）
+      description: GitHub / 博客 / 技术文章，留一个链接就行，不影响审核结果
+
+  - type: dropdown
+    id: channel
+    attributes:
+      label: 这份报名是怎么提交的
+      description: 我们想看看 Agent 报名的真实占例
+      options:
+        - 我自己填的
+        - Agent 帮我填的
+        - Agent 试了但没成功
+    validations:
+      required: true
