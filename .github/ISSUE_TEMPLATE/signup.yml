@@ -7,35 +7,30 @@ body:
     attributes:
       value: |
         > ⚠️ **这个 Issue 是公开的，所有人都能看到，也会被搜索引擎收录。**
-        > **请不要在这里填手机号、微信号或任何私密联系方式。**
-        > 通过审核后，我们会私信你交换真实姓名和联系方式。
+        >
+        > 所以这份表**不收集任何身份信息**：
+        > 不要填真实姓名、公司、手机号、微信号、邮箱。
+        >
+        > 我们只按**技术内容**筛选。通过了再私聊交换真实姓名和联系方式。
         >
         > **这是审核制，提交不等于报名成功。** 48 小时内给结果。
         > 也可以让你的 Agent 直接提 Issue，格式见 [SKILL.md](../blob/main/SKILL.md)。
 
   - type: input
-    id: name
-    attributes:
-      label: 姓名 / 花名
-      description: 填花名、GitHub 昵称都可以，真实姓名等通过了再告诉我们
-      placeholder: 张三 或 @octocat
-    validations:
-      required: true
-
-  - type: input
     id: handle
     attributes:
       label: GitHub 用户名
-      description: 通过审核后我们靠这个找到你
+      description: 我们会用这个联系你，也是你的公开身份
       placeholder: octocat
     validations:
       required: true
 
   - type: input
-    id: org
+    id: name
     attributes:
-      label: 公司 / 学校（可留空）
-      description: 不想公开可以不填，不影响审核
+      label: 想被怎么称呼（选填）
+      description: 花名、昵称都行。留空就用你的 GitHub 用户名。**不要填真实姓名。**
+      placeholder: 小林
 
   - type: dropdown
     id: role

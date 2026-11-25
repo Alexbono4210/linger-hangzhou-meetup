@@ -5,7 +5,7 @@ import re
 
 COLUMNS = [
     "issue", "提交时间", "提交人",
-    "姓名", "GitHub 用户名", "公司 / 学校", "身份",
+    "GitHub 用户名", "称呼", "身份",
     "你的电脑", "是否带电脑来现场", "本地模型经验",
     "试过 Linger 桌面端吗", "最近在折腾什么", "运行截图",
     "活动后愿意继续参与吗", "现场愿意开麦吗",
@@ -14,13 +14,13 @@ COLUMNS = [
 ]
 
 ALIASES = {
-    "姓名 / 花名": "姓名",
-    "姓名": "姓名",
+    "想被怎么称呼": "称呼",
+    "想被怎么称呼（选填）": "称呼",
+    "称呼": "称呼",
+    "姓名 / 花名": "称呼",
+    "姓名": "称呼",
     "GitHub 用户名": "GitHub 用户名",
     "GitHub用户名": "GitHub 用户名",
-    "公司/学校": "公司 / 学校",
-    "公司 / 学校": "公司 / 学校",
-    "公司 / 学校（可留空）": "公司 / 学校",
     "是否带电脑": "是否带电脑来现场",
     "是否带电脑来现场": "是否带电脑来现场",
     "最近在折腾什么": "最近在折腾什么",
@@ -74,12 +74,12 @@ def normalize(raw: dict) -> dict:
 
 
 def is_signup(body: str) -> bool:
-    """有「姓名 / 花名」且填了内容，才当成报名单。"""
+    """有 GitHub 用户名或称呼，且填了内容，才当成报名单。"""
     raw = parse_issue(body)
     for k, v in raw.items():
         key = re.sub(r"[（(][^（）()]*[）)]\s*$", "", k.strip()).strip()
         key = ALIASES.get(key, key)
-        if key == "姓名" and v.strip():
+        if key in ("GitHub 用户名", "称呼") and v.strip():
             return True
     return False
 
@@ -94,4 +94,6 @@ def to_row(issue: dict) -> dict:
     created = issue.get("createdAt", "") or ""
     row["提交时间"] = created.replace("T", " ").replace("Z", "")[:19]
     row["审核状态"] = row.get("审核状态") or "待审核"
+    if not row.get("称呼"):
+        row["称呼"] = row.get("GitHub 用户名", "")
     return row
