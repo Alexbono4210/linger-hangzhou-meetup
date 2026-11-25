@@ -6,33 +6,36 @@ body:
   - type: markdown
     attributes:
       value: |
-        > **这是审核制，提交不等于报名成功。** 48 小时内给结果，通过后会私信详细地址。
+        > ⚠️ **这个 Issue 是公开的，所有人都能看到，也会被搜索引擎收录。**
+        > **请不要在这里填手机号、微信号或任何私密联系方式。**
+        > 通过审核后，我们会私信你交换真实姓名和联系方式。
+        >
+        > **这是审核制，提交不等于报名成功。** 48 小时内给结果。
         > 也可以让你的 Agent 直接提 Issue，格式见 [SKILL.md](../blob/main/SKILL.md)。
 
   - type: input
     id: name
     attributes:
-      label: 姓名
-      placeholder: 张三
+      label: 姓名 / 花名
+      description: 填花名、GitHub 昵称都可以，真实姓名等通过了再告诉我们
+      placeholder: 张三 或 @octocat
     validations:
       required: true
 
   - type: input
-    id: contact
+    id: handle
     attributes:
-      label: 微信 / 手机
-      description: 通知你的唯一凭据，请填真实信息
-      placeholder: 13800000000
+      label: GitHub 用户名
+      description: 通过审核后我们靠这个找到你
+      placeholder: octocat
     validations:
       required: true
 
   - type: input
     id: org
     attributes:
-      label: 公司 / 学校
-      placeholder: 某某科技
-    validations:
-      required: true
+      label: 公司 / 学校（可留空）
+      description: 不想公开可以不填，不影响审核
 
   - type: dropdown
     id: role
@@ -138,7 +141,7 @@ body:
     id: links
     attributes:
       label: 有什么能看到你的东西吗（选填）
-      description: GitHub / 博客 / 技术文章，留一个链接就行，不影响审核结果
+      description: GitHub / 博客 / 技术文章，留一个链接就行
 
   - type: dropdown
     id: channel

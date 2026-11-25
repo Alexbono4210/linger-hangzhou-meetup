@@ -28,14 +28,14 @@ def main():
     text = (
         f"📥 新报名 #{num}\n"
         f"姓名：{rec.get('姓名','')}　｜　{rec.get('身份','')}\n"
-        f"公司/学校：{rec.get('公司 / 学校','')}\n"
+        f"GitHub：{rec.get('GitHub 用户名','')}\n"
+        f"公司/学校：{rec.get('公司 / 学校','') or '（未填）'}\n"
         f"电脑：{rec.get('你的电脑','')}\n"
         f"本地经验：{rec.get('本地模型经验','')}　｜　试过 Linger：{rec.get('试过 Linger 桌面端吗','')}\n\n"
         f"最近在折腾什么：\n{rec.get('最近在折腾什么','')}\n\n"
         f"继续参与：{rec.get('活动后愿意继续参与吗','')}　｜　开麦：{rec.get('现场愿意开麦吗','')}\n"
         f"提交方式：{rec.get('这份报名是怎么提交的','')}\n"
-        f"微信/手机：{rec.get('微信 / 手机','')}\n"
-        f"{url}"
+        f"{url}\n通过后记得私信他要微信和真实姓名"
     )
 
     payload = {"msg_type": "text", "content": {"text": text}}
