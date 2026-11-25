@@ -56,7 +56,7 @@ jobs:
         with:
           script: |
             const body = context.payload.issue.body || "";
-            if (!body.includes("### 姓名")) {
+            if (!body.includes("### GitHub 用户名") && !body.includes("### 想被怎么称呼")) {
               core.info("不是报名单，跳过");
               return;
             }

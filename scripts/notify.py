@@ -18,7 +18,7 @@ def main():
 
     body = os.environ.get("ISSUE_BODY", "")
     rec = normalize(parse_issue(body))
-    if not rec.get("姓名"):
+    if not (rec.get("称呼") or rec.get("GitHub 用户名")):
         print("不是报名单，跳过")
         return
 
@@ -27,7 +27,7 @@ def main():
 
     text = (
         f"📥 新报名 #{num}\n"
-        f"姓名：{rec.get('姓名','')}　｜　{rec.get('身份','')}\n"
+        f"称呼：{rec.get('称呼','')}　｜　{rec.get('身份','')}\n"
         f"GitHub：{rec.get('GitHub 用户名','')}\n"
         f"公司/学校：{rec.get('公司 / 学校','') or '（未填）'}\n"
         f"电脑：{rec.get('你的电脑','')}\n"
