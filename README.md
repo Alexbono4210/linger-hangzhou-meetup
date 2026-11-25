@@ -76,7 +76,7 @@ Settings → Actions → General → Workflow permissions →
 
 | 方式 | 给谁 | 入口 |
 |---|---|---|
-| **网页表单** | 大多数人 | `https://github.com/你/仓库/issues/new?template=signup.yml` |
+| **网页表单** | 大多数人 | `https://github.com/Alexbono4210/linger-hangzhou-meetup/issues/new?template=signup.yml` |
 | **Agent 提 Issue** | 会用 Agent 的人 | 把 `SKILL.md` 给他，或让他 `gh issue create` |
 | **自己写 issue** | 有 GitHub 习惯的人 | 同上，手写 body |
 

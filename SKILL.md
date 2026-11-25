@@ -137,7 +137,7 @@ gh auth status
 
 ```bash
 gh issue create \
-  --repo {{ORG}}/{{REPO}} \
+  --repo Alexbono4210/linger-hangzhou-meetup \
   --title "报名：{姓名}" \
   --body-file issue.md \
   --label signup
@@ -148,7 +148,7 @@ gh issue create \
 把 Issue 模板链接给用户，让他自己点着填：
 
 ```
-https://github.com/{{ORG}}/{{REPO}}/issues/new?template=signup.yml
+https://github.com/Alexbono4210/linger-hangzhou-meetup/issues/new?template=signup.yml
 ```
 
 ---
