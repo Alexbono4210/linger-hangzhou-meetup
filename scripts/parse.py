@@ -44,6 +44,7 @@ def parse_issue(body: str) -> dict:
     """
     if not body:
         return {}
+    body = body.lstrip("\ufeff").replace("\r\n", "\n")
     blocks = re.split(r"(?m)^###\s+", body)
     data = {}
     for block in blocks[1:]:
