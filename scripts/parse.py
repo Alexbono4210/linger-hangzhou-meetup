@@ -73,10 +73,12 @@ def normalize(raw: dict) -> dict:
 
 
 def is_signup(body: str) -> bool:
-    """有「### 姓名」且填了内容，才当成报名单。"""
+    """有「姓名 / 花名」且填了内容，才当成报名单。"""
     raw = parse_issue(body)
     for k, v in raw.items():
-        if k.strip() == "姓名" and v.strip():
+        key = re.sub(r"[（(][^（）()]*[）)]\s*$", "", k.strip()).strip()
+        key = ALIASES.get(key, key)
+        if key == "姓名" and v.strip():
             return True
     return False
 
