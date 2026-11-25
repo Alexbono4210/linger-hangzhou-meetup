@@ -41,6 +41,7 @@ jobs:
           fi
 
       - name: 给 Issue 打标记
+        if: github.event.action == 'opened'
         uses: actions/github-script@v7
         with:
           script: |
